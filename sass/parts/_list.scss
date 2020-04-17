@@ -1,0 +1,30 @@
+
+ul, ol {
+    padding-left: 2em;
+    margin: 0.2em;
+    & > li {
+        text-align: left;
+    }
+}
+ul.use-nightfall {
+    list-style: none;
+    padding-left: 0;
+    & > li {
+        &::before {
+            content: "• ";
+            color: var(--nightfall-color-main);
+        }
+    }
+}
+ol.use-nightfall {
+    counter-reset: ol_li_count;
+    list-style: none;
+    padding-left: 0;
+    & > li {
+        &::before {
+            counter-increment: ol_li_count;
+            content: counter(ol_li_count)". ";
+            color: var(--nightfall-color-main);
+        }
+    }
+}

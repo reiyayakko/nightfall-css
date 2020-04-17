@@ -1,0 +1,147 @@
+// ◆◆ テキスト
+p {
+    margin: 0;
+}
+// #リンク
+a, .a {
+    transition: 0.2s;
+    &:link {
+        color: #59b9c6;
+    }
+    &:visited {
+        color: #165e83;
+    }
+    &:hover, &:active {
+        color: darkred;
+        text-shadow: 0 0 4px #222;
+    }
+}
+@import "list", "table";
+// #横線 <hr/>
+hr {
+    padding: 1px;
+    margin: 8px;
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #333 20%,
+            #333 80%,
+            transparent
+        );
+    border: none;
+}
+// #引用
+blockquote, .quote {
+    @include rei-box;
+    position: relative;
+    padding: 1.4em 0.4em 0.4em;
+    font-style: italic;
+    border-left: 0.4em solid var(--nightfall-color-main);
+    &::before {
+        position: absolute;
+        top: 0.2em;
+        font-size: 2em;
+        font-weight: 900;
+        line-height: 1em;
+        color: var(--nightfall-color-main);
+        content: "“";
+    }
+    &[data-before]::before {
+        content: attr(data-before);
+    }
+}
+// #コード
+code {
+    display: block;
+    margin: 0.2em;
+    color: var(--color-bac);
+    background-color: var(--color-text);
+    border-radius: 4px;
+}
+pre {
+    padding: 0.2em;
+    margin: 0;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 1em;
+}
+// #画像
+img {
+    display: inline-block;
+    max-width: 400px;
+    max-height: 400px;
+    color: var(--color-text);
+    text-align: center;
+    &::before {
+        display: block;
+        padding-bottom: 2px;
+        margin-top: 2px;
+        content: "";
+        border-top: 1px solid var(--nightfall-color-main);
+    }
+    &::after {
+        display: block;
+        padding-top: 2px;
+        margin-bottom: 2px;
+        font-size: 0.6em;
+        content: "(src:" attr(src) ")";
+        border-bottom: 1px solid var(--nightfall-color-main);
+    }
+}
+// #ボタン
+button, .btn, .button {
+    @include rei-box;
+    display: inline-block;
+    padding: 0.2em;
+    margin: 0.2rem;
+    font-size: 1rem;
+    line-height: 1.2em;
+    color: #683c34;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    transition: 0.4s;
+    &:hover {
+        color: #fff;
+        background-color: #683c34;
+    }
+}
+.btntypeB {
+    padding: 4px 8px 4px 8px;
+    margin: 2px 2px 2px 2px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    background-color: #222;
+    border-radius: 14px 0 14px;
+    outline: none;
+    transition: 0.4s;
+    &:hover {
+        border-radius: 0 14px 0 14px;
+    }
+}
+//# 見出し
+@import "heading";
+// #HTML5アコーディオン
+details {
+    @include rei-box;
+    margin: 0.4rem;
+    border-color: var(--nightfall-color-main);
+    border-style: solid;
+    border-width: 1px 6px;
+    summary {
+        padding: 0 0.2em 0.2em;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+        & > p {
+            padding: 4px;
+            background-color: var(--color-bac);
+        }
+    }
+}

@@ -1,0 +1,74 @@
+
+%hedding {
+    @include rei-box;
+    padding: 0 0.5em;
+    font-weight: bold;
+    text-align: left;
+    border-color: var(--nightfall-color-main);
+    border-style: solid;
+    border-width: 0;
+    &.r {
+        border-radius: 3px;
+    }
+    &.f::first-letter {
+        font-size: 1.5em;
+    }
+}
+@if $extend {
+    @for $number from 1 through 6 {
+        h#{$number} {
+            @extend .h#{$number};
+        }
+    }
+}
+.h1 {
+    @extend %hedding;
+    position: relative;
+    margin-right: 0.8rem;
+    font-size: 1.6em;
+    line-height: 1.4em;
+    &::before {
+        @include rei-box;
+        position: absolute;
+        top: 0.2em;
+        left: 0.2em;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        content: "";
+        background-color: var(--nightfall-color-main);
+    }
+}
+.h2 {
+    @extend %hedding;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    border-top-width: 4px;
+}
+.h3 {
+    @extend %hedding;
+    font-size: 1.2em;
+    line-height: 1.4em;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}
+.h4 {
+    @extend %hedding;
+    font-size: 1.1em;
+    line-height: 1.4em;
+    border-left-width: 6px;
+}
+.h5 {
+    @extend %hedding;
+    font-size: 1em;
+    line-height: 1.4em;
+    border-top-width: 2px;
+}
+.h6 {
+    @extend %hedding;
+    font-size: 1em;
+    line-height: 1.4em;
+    border-bottom-width: 1px;
+}

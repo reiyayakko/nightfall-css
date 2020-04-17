@@ -1,0 +1,65 @@
+/**
+ * nightfall
+ * Copyright (c)
+ */
+
+@import "function";
+$colors: (
+    main: #683c34,
+    sub: #ec541c,
+    background: #f0f0f0,
+    bac: #f0f0f0,
+    text: #333,
+);
+$colors: map-set($colors, "main", #bcc);
+@debug $colors;
+$extend: true default;
+// ?: base setting
+html {
+    --nightfall-color-main: #{map-get($colors, "main")};
+    --nightfall-color-sub: #{map-get($colors, "sub")};
+    --nightfall-color-background: #{map-get($colors, "background")};
+    --nightfall-color-text: #{map-get($colors, "text")};
+    --color-bac: #{map-get($colors, "bac")};
+    --color-text: #{map-get($colors, "text")};
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+body {
+    margin: 0;
+}
+:not(.rei-disable):not(.rei-dis),
+:not(.rei-disable):not(.rei-dis)::before,
+:not(.rei-disable):not(.rei-dis)::after {
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/**
+ * ?: Mixin
+ * Sassで使うためのパーツ群
+ */
+@import "mixin";
+/**
+ * ?: Block
+ * 機能的に区分された一つの要素
+ */
+@import "block/index";
+/**
+ * ?: Parts
+ * 再利用可能な中・小規模の要素
+ */
+@import "parts/index";
+/**
+ * ?: Structure
+ * 追加された補助構造
+ */
+@import "structure/index";
+/**
+ * ?: Utility
+ * 色や大きさ等のパラメーター
+ */
+@import "utility/index";
+
