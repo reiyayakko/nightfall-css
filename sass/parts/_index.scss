@@ -55,8 +55,8 @@ blockquote, .quote {
 code {
     display: block;
     margin: 0.2em;
-    color: var(--color-bac);
-    background-color: var(--color-text);
+    color: var(--nightfall-color-background);
+    background-color: var(--nightfall-color-text);
     border-radius: 4px;
 }
 pre {
@@ -71,7 +71,7 @@ img {
     display: inline-block;
     max-width: 400px;
     max-height: 400px;
-    color: var(--color-text);
+    color: var(--nightfall-color-text);
     text-align: center;
     &::before {
         display: block;
@@ -141,7 +141,7 @@ details {
         outline: none;
         & > p {
             padding: 4px;
-            background-color: var(--color-bac);
+            background-color: var(--nightfall-color-background);
         }
     }
 }

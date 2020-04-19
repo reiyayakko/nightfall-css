@@ -1,7 +1,14 @@
+
+@mixin variable($key, $value) {
+    --nightfall-#{$key}: #{$value};
+}
+@function use-var($key) {
+    @return var(--nightfall-#{$key});
+}
 @mixin rei-box {
     display: block;
     margin: 0.4em;
-    background-color: var(--color-bac);
+    background-color: var(--nightfall-color-background);
     box-shadow: 0 0 4px #0002;
 }
 // padding

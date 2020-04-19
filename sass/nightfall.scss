@@ -1,31 +1,32 @@
-/**
+/*!
  * nightfall
- * Copyright (c)
+ * Copyright (c) 2020 reiyayakko
  */
 
 @import "function";
+/**
+ * ?: Mixin
+ * Sassで使うためのパーツ群
+ */
+@import "mixin";
+$extend: true default;
 $colors: (
-    main: #683c34,
+    main: #224,
     sub: #ec541c,
     background: #f0f0f0,
-    bac: #f0f0f0,
     text: #333,
 );
-$colors: map-set($colors, "main", #bcc);
-@debug $colors;
-$extend: true default;
+// $colors: map-set($colors, "main", #bcc);
 // ?: base setting
 html {
-    --nightfall-color-main: #{map-get($colors, "main")};
-    --nightfall-color-sub: #{map-get($colors, "sub")};
-    --nightfall-color-background: #{map-get($colors, "background")};
-    --nightfall-color-text: #{map-get($colors, "text")};
-    --color-bac: #{map-get($colors, "bac")};
-    --color-text: #{map-get($colors, "text")};
+    @include variable(color-main, map-get($colors, "main"));
+    @include variable(color-sub, map-get($colors, "sub"));
+    @include variable(color-background, map-get($colors, "background"));
+    @include variable(color-text, map-get($colors, "text"));
     font-family: sans-serif;
     font-size: 16px;
     line-height: 1.2;
-    color: var(--color-text);
+    color: use-var(color-text);
 }
 body {
     margin: 0;
@@ -33,15 +34,8 @@ body {
 :not(.rei-disable):not(.rei-dis),
 :not(.rei-disable):not(.rei-dis)::before,
 :not(.rei-disable):not(.rei-dis)::after {
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
-/**
- * ?: Mixin
- * Sassで使うためのパーツ群
- */
-@import "mixin";
 /**
  * ?: Block
  * 機能的に区分された一つの要素
